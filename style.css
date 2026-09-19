@@ -1,0 +1,821 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #1f2937
+        );
+
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+.panel {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 32px 24px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.35);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.panel h1 {
+
+    margin: 0;
+
+    font-size: 32px;
+
+    letter-spacing: 1px;
+}
+
+
+.subtitle {
+
+    margin-top: 6px;
+
+    color: #aeb7c7;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.nameBox {
+
+    text-align: left;
+
+    margin-top: 18px;
+}
+
+
+.nameBox label,
+.section > label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    color: #cbd5e1;
+}
+
+
+.nameBox input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 16px;
+}
+
+
+.nameBox input::placeholder {
+
+    color: #8993a4;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+
+    margin-top: 22px;
+
+    text-align: left;
+}
+
+
+.buttonGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 8px;
+}
+
+
+.sizeButton,
+.modeButton {
+
+    border:
+        2px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        border 0.2s;
+}
+
+
+.sizeButton {
+
+    padding: 12px 6px;
+}
+
+
+.sizeButton strong {
+
+    display: block;
+
+    font-size: 17px;
+}
+
+
+.sizeButton span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    color: #aeb7c7;
+}
+
+
+.modeButtons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 8px;
+}
+
+
+.modeButton {
+
+    padding: 13px 7px;
+
+    font-size: 13px;
+}
+
+
+.sizeButton.selected,
+.modeButton.selected {
+
+    border-color: #f5c542;
+
+    background:
+        rgba(245,197,66,0.15);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.sizeButton:active,
+.modeButton:active {
+
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.mainButton {
+
+    width: 100%;
+
+    margin-top: 26px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #f5c542;
+
+    color: #171717;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.secondaryButton {
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.clearButton {
+
+    margin-top: 15px;
+
+    padding: 9px 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,80,80,0.15);
+
+    color: #ff8c8c;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+.game {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    text-align: center;
+}
+
+
+.headerRow {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.game header h1 {
+
+    margin: 0;
+
+    font-size: 30px;
+}
+
+
+.soundButton {
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.scoreBoard {
+
+    width: 100%;
+
+    margin: 20px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.8fr 1fr;
+
+    gap: 10px;
+}
+
+
+.playerCard,
+.turnBox {
+
+    padding: 12px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        2px solid
+        transparent;
+
+    transition:
+        transform 0.25s,
+        background 0.25s;
+}
+
+
+.playerCard {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.playerCard span {
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    max-width: 100px;
+}
+
+
+.playerCard strong {
+
+    font-size: 24px;
+}
+
+
+.player1 {
+
+    border-color:
+        #ff6b6b;
+}
+
+
+.player2 {
+
+    border-color:
+        #5da9ff;
+}
+
+
+.playerCard.active {
+
+    background:
+        rgba(255,255,255,0.2);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(255,255,255,0.08);
+}
+
+
+.turnBox {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    color: #aeb7c7;
+}
+
+
+.turnBox strong {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: white;
+}
+
+
+/* =========================
+   CANVAS
+========================= */
+
+.boardWrapper {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+canvas {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    background: #f5f1df;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.3);
+
+    touch-action: none;
+}
+
+
+/* =========================
+   GAME BUTTONS
+========================= */
+
+.newGameButton {
+
+    margin-top: 14px;
+
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   WINNER
+========================= */
+
+.winnerAnimation {
+
+    font-size: 70px;
+
+    animation:
+        trophyBounce 1s
+        ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes trophyBounce {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+
+    }
+}
+
+
+#winnerTitle {
+
+    font-size: 29px;
+
+    margin-top: 12px;
+}
+
+
+#winnerScores {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin: 12px 0;
+}
+
+
+#winnerMessage {
+
+    color: #aeb7c7;
+}
+
+
+/* =========================
+   LEADERBOARD
+========================= */
+
+.leaderboardPanel {
+
+    max-width: 480px;
+}
+
+
+#leaderboardList {
+
+    margin-top: 20px;
+}
+
+
+.leaderboardRow {
+
+    display: grid;
+
+    grid-template-columns:
+        45px 1fr 55px 55px;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 13px 8px;
+
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    text-align: left;
+
+    animation:
+        leaderboardAppear
+        0.35s ease;
+}
+
+
+@keyframes leaderboardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+}
+
+
+.rank {
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+.leaderName {
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-weight: bold;
+}
+
+
+.stat {
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #cbd5e1;
+}
+
+
+.leaderHeader {
+
+    display: grid;
+
+    grid-template-columns:
+        45px 1fr 55px 55px;
+
+    font-size: 11px;
+
+    color: #8f9aaa;
+
+    margin-bottom: 8px;
+}
+
+
+.leaderHeader span {
+
+    text-align: center;
+}
+
+
+.leaderHeader span:nth-child(2) {
+
+    text-align: left;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .screen {
+
+        padding: 15px;
+    }
+
+
+    .panel {
+
+        padding:
+            28px 18px;
+    }
+
+
+    .panel h1 {
+
+        font-size: 27px;
+    }
+
+
+    .game header h1 {
+
+        font-size: 25px;
+    }
+
+
+    .scoreBoard {
+
+        gap: 6px;
+    }
+
+
+    .playerCard {
+
+        padding: 9px;
+
+        font-size: 12px;
+    }
+
+
+    .playerCard strong {
+
+        font-size: 21px;
+    }
+
+
+    .turnBox strong {
+
+        font-size: 11px;
+    }
+
+
+    .leaderboardRow {
+
+        grid-template-columns:
+            38px 1fr 45px 45px;
+    }
+
+
+    .leaderHeader {
+
+        grid-template-columns:
+            38px 1fr 45px 45px;
+    }
+
+}

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Poojyam Vettu</title>
+
+    <!-- PWA -->
+    <link
+        rel="manifest"
+        href="./manifest.json"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f5c542"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         START SCREEN
+    ========================== -->
+
+    <div
+        id="startScreen"
+        class="screen"
+    >
+
+        <div class="panel">
+
+            <h1>POOJYAM VETTU</h1>
+
+            <p class="subtitle">
+                Classic Dots &amp; Boxes
+            </p>
+
+
+            <!-- PLAYER 1 -->
+
+            <div class="nameBox">
+
+                <label for="player1Name">
+                    Player 1
+                </label>
+
+                <input
+                    id="player1Name"
+                    type="text"
+                    placeholder="Player 1"
+                    maxlength="12"
+                >
+
+            </div>
+
+
+            <!-- PLAYER 2 -->
+
+            <div
+                class="nameBox"
+                id="player2NameBox"
+            >
+
+                <label for="player2Name">
+                    Player 2
+                </label>
+
+                <input
+                    id="player2Name"
+                    type="text"
+                    placeholder="Player 2"
+                    maxlength="12"
+                >
+
+            </div>
+
+
+            <!-- BOARD SIZE -->
+
+            <div class="section">
+
+                <label>
+                    Board Size
+                </label>
+
+                <div class="buttonGrid">
+
+                    <button
+                        type="button"
+                        class="sizeButton"
+                        data-size="3"
+                    >
+                        <strong>3×3</strong>
+                        <span>Quick</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="sizeButton selected"
+                        data-size="4"
+                    >
+                        <strong>4×4</strong>
+                        <span>Classic</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="sizeButton"
+                        data-size="5"
+                    >
+                        <strong>5×5</strong>
+                        <span>Long</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME MODE -->
+
+            <div class="section">
+
+                <label>
+                    Game Mode
+                </label>
+
+                <div class="modeButtons">
+
+                    <button
+                        type="button"
+                        class="modeButton selected"
+                        data-mode="2player"
+                    >
+                        👥 2 Players
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="modeButton"
+                        data-mode="computer"
+                    >
+                        🤖 Vs Computer
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- START -->
+
+            <button
+                id="startButton"
+                class="mainButton"
+                type="button"
+            >
+                START GAME
+            </button>
+
+
+            <!-- LEADERBOARD -->
+
+            <button
+                id="leaderboardButton"
+                class="secondaryButton"
+                type="button"
+            >
+                🏆 Leaderboard
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         GAME SCREEN
+    ========================== -->
+
+    <div
+        id="gameScreen"
+        class="screen hidden"
+    >
+
+        <div class="game">
+
+            <header>
+
+                <div class="headerRow">
+
+                    <div>
+
+                        <h1>Poojyam Vettu</h1>
+
+                        <p class="subtitle">
+                            Dots &amp; Boxes
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="soundButton"
+                        class="soundButton"
+                        type="button"
+                    >
+                        🔊
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- SCORE BOARD -->
+
+            <div class="scoreBoard">
+
+                <div
+                    id="player1Card"
+                    class="playerCard player1"
+                >
+
+                    <span id="player1Label">
+                        Player 1
+                    </span>
+
+                    <strong id="player1Score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="turnBox">
+
+                    <span>
+                        TURN
+                    </span>
+
+                    <strong id="turnLabel">
+                        Player 1
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="player2Card"
+                    class="playerCard player2"
+                >
+
+                    <span id="player2Label">
+                        Player 2
+                    </span>
+
+                    <strong id="player2Score">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOARD -->
+
+            <div class="boardWrapper">
+
+                <canvas
+                    id="gameCanvas"
+                ></canvas>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <button
+                id="newGameButton"
+                class="newGameButton"
+                type="button"
+            >
+                ↻ New Game
+            </button>
+
+
+            <button
+                id="leaderboardGameButton"
+                class="newGameButton"
+                type="button"
+            >
+                🏆 Leaderboard
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         WINNER SCREEN
+    ========================== -->
+
+    <div
+        id="winnerScreen"
+        class="screen hidden"
+    >
+
+        <div class="panel winnerPanel">
+
+            <div class="winnerAnimation">
+                🏆
+            </div>
+
+
+            <h1 id="winnerTitle">
+                Player 1 Wins!
+            </h1>
+
+
+            <p id="winnerScores">
+                5 - 4
+            </p>
+
+
+            <p id="winnerMessage">
+                Great game!
+            </p>
+
+
+            <button
+                id="playAgainButton"
+                class="mainButton"
+                type="button"
+            >
+                PLAY AGAIN
+            </button>
+
+
+            <button
+                id="winnerLeaderboardButton"
+                class="secondaryButton"
+                type="button"
+            >
+                🏆 VIEW LEADERBOARD
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         LEADERBOARD
+    ========================== -->
+
+    <div
+        id="leaderboardScreen"
+        class="screen hidden"
+    >
+
+        <div class="panel leaderboardPanel">
+
+            <h1>
+                🏆 Leaderboard
+            </h1>
+
+
+            <p class="subtitle">
+                Local records on this device
+            </p>
+
+
+            <div id="leaderboardList"></div>
+
+
+            <button
+                id="closeLeaderboardButton"
+                class="mainButton"
+                type="button"
+            >
+                BACK
+            </button>
+
+
+            <button
+                id="clearLeaderboardButton"
+                class="clearButton"
+                type="button"
+            >
+                Clear Leaderboard
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="game.js"></script>
+
+
+    <!-- =========================
+         SERVICE WORKER
+    ========================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    navigator.serviceWorker
+                        .register(
+                            "./service-worker.js"
+                        )
+
+                        .then(() => {
+
+                            console.log(
+                                "Poojyam Vettu service worker registered"
+                            );
+
+                        })
+
+                        .catch(error => {
+
+                            console.error(
+                                "Service worker registration failed:",
+                                error
+                            );
+
+                        });
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
