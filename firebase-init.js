@@ -31,3 +31,33 @@ auth.onAuthStateChanged(function (user) {
 database.ref(".info/connected").on("value", function (snapshot) {
     console.log("Realtime Database connected:", snapshot.val());
 });
+// Show Firebase status on the page
+const statusBox = document.createElement("div");
+
+statusBox.style.cssText =
+    "position:fixed;bottom:10px;left:10px;right:10px;" +
+    "padding:10px;background:#222;color:white;" +
+    "font:14px Arial;border-radius:8px;z-index:9999;";
+
+statusBox.textContent = "Checking Firebase...";
+document.body.appendChild(statusBox);
+
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        statusBox.textContent =
+            "✅ Firebase connected — guest signed in";
+    } else {
+        statusBox.textContent =
+            "⏳ Waiting for guest sign-in...";
+    }
+});
+
+database.ref(".info/connected").on("value", function (snapshot) {
+    if (snapshot.val() === true) {
+        statusBox.textContent =
+            "✅ Realtime Database connected";
+    } else {
+        statusBox.textContent =
+            "⏳ Connecting to Realtime Database...";
+    }
+});
