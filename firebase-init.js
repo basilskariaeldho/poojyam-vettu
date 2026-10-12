@@ -16,3 +16,18 @@ const database = firebase.database();
 const auth = firebase.auth();
 
 console.log("Firebase initialized");
+// Poojyam Vettu: Firebase connection test
+
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        console.log("Firebase connected. Guest ID:", user.uid);
+    } else {
+        auth.signInAnonymously().catch(function (error) {
+            console.error("Firebase guest sign-in failed:", error.code, error.message);
+        });
+    }
+});
+
+database.ref(".info/connected").on("value", function (snapshot) {
+    console.log("Realtime Database connected:", snapshot.val());
+});
